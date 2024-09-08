@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+    
+<table class="w3-table-all w3-card-4 w3-display-middle">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for c in courses %}
+    <tr>
+
+        <td>{{ c.course_id }}</td>
+        <td>{{ c.course_name }}</td>
+        <td>{{ c.first_name }}</td>
+        <td>{{ c.last_name }}</td>
+        <td><a class="w3-button w3-wide" href="{{ url_for('cours', customer_id=c.course_id ) }}">More information</a></td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+
+<div>
+    
+<footer>
+    <p><a href="{{ url_for("home") }}" class="navbar-brand w3-display-bottomright">Back Home</a></p>
+</footer>
+
+{% endblock %}

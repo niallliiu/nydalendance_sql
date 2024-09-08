@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+        
+    <table class="w3-table-all w3-card-4 w3-display-middle">
+    <thead>
+    <tr>
+        <th>Fisrt Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Course</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+     {% for i in instructors %}
+    <tr>
+
+        <td>{{ i.first_name }}</td>
+        <td>{{ i.last_name }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.age }}</td>
+        <td>{{ i.course_name }}</td>
+        <td><a class="w3-button w3-wide" href="{{ url_for('cours', customer_id=i.course_id ) }}">More information</a></td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+<div>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+<br>
+<br>
+<br>
+<div class="w3-card-4">
+
+    <header class="w3-container w3-light-grey">
+      <h3>{{ cours.course_name }}</h3>
+    </header>
+    
+    <div class="w3-container">
+      <p class="w3-panel w3-light-grey w3-bottombar w3-border-white w3-hover-border-grey">{{ cours.first_name }} {{ cours.last_name }}</p>
+      <hr>
+      <p class="w3-panel w3-leftbar w3-border-white w3-hover-border-grey">Room: {{ cours.room_num }}</p>
+      <hr>
+      <p class="w3-panel w3-light-grey w3-bottombar w3-border-white w3-hover-border-grey">Starting: {{ cours.start_date }}</p>
+      <hr>
+      <p class="w3-panel w3-leftbar w3-border-white w3-hover-border-grey">Session: {{ cours.session_num }}</p>
+      <hr>
+      <p class="w3-panel w3-light-grey w3-bottombar w3-border-white w3-hover-border-grey">Price: {{ cours.price }} kr</p>
+    </div>
+    </div>
+
+<br><br>
+
+<table class="w3-table-all w3-card-4">
+<tfoot>
+<tr>
+    <th>Total Spots</th>
+    <th>{{ cours.capacity }}</th>
+    <th>Capacity Left</th>
+    <th>{{ cours.already_signed }}</th>
+</tr>
+</tfoot>
+</table>
+
+<br><br>
+
+<header class="w3-container w3-light-grey">
+    <h3>Sign-up {{ cours.course_name }} Class Now!</h3>
+  </header>
+
+{% if feedback %}
+<div class="w3-panel w3-round w3-red w3-opacity-min">
+{{ feedback }}
+
+</div>
+{% endif %}
+
+<form class="w3-input w3-border" action="#add" method="post">
+<div>
+<label class="w3-input w3-border-0">First Name</label>
+<input name="first_name" type="text" class="w3-input w3-border w3-light-gre" value="{{ first_name }}" required />
+</div>
+
+<div>
+<label class="w3-input w3-border-0">Last name</label>
+<input name="last_name" type="text" class="w3-input w3-border w3-light-gre" min="1" value="{{ last_name }}" required />
+</div>
+
+<div>
+<label class="w3-input w3-border-0">Gender</label>
+<input name="gender" type="text" class="w3-input w3-border w3-light-gre" value="{{ gender }}" required />
+</div>
+
+<div>
+<label class="w3-input w3-border-0">Email</label>
+<input name="email" type="email" class="w3-input w3-border w3-light-gre" value="{{ email }}" required />
+</div>
+
+<div class="mt-2">
+<br>
+<input class="w3-button w3-block w3-dark-grey w3-white w3-border" type="submit" value="Submit" />
+</div>
+</form>
+
+<div>
+{% endblock %}
